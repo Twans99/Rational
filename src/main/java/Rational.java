@@ -1,4 +1,4 @@
-class Rational { 
+class   Rational {
     long numerator,denominator; 
 
     class Illegal extends Exception { 
@@ -10,10 +10,13 @@ class Rational {
 
     Rational() {
         // to be completed
+//        super();
     }
 
     Rational(long numerator, long denominator) throws Illegal { 
         // to be completed
+        this.numerator = numerator;
+        this.denominator = denominator;
     } 
 
     // find the reduce form 
@@ -45,6 +48,9 @@ class Rational {
      * @param x the rational number to be subtracted from the current rational number
      */
     public void subtract(Rational x) {
+        numerator = (numerator * x.denominator) - (x.numerator * denominator);
+        denominator = (denominator * x.denominator);
+        simplestForm();
         // to be completed
     }
 
@@ -52,8 +58,11 @@ class Rational {
      * Compute a multiplication of the current rational number to another given rational number
      * @param x the rational number to be multiplied to the current rational number
      */
-    public void multiply(Rational x) { 
+    public void multiply(Rational x) {
         // to be completed
+        numerator = (numerator * x.numerator);
+        denominator = (denominator * x.denominator);
+        simplestForm();
     }
 
     /***
@@ -62,6 +71,9 @@ class Rational {
      */
     public void divide(Rational x) {
         // to be completed
+        numerator = (numerator * x.denominator);
+        denominator = (denominator * x.numerator);
+        simplestForm();
     }
 
     /***
@@ -71,7 +83,13 @@ class Rational {
      */
     public boolean equals(Object x) {
         // to be completed
-        return true; // TODO: This needs to be modified.
+        long temp = this.numerator/this.denominator;
+        Rational r = Rational.class.cast(x);
+        long comp = r.numerator/this.denominator;
+        if(temp == comp){
+            return true;
+        }
+        return false; // TODO: This needs to be modified.
     }
 
     /***
@@ -82,6 +100,21 @@ class Rational {
      */
     public long compareTo(Object x) {
         // to be completed
+        long temp = this.numerator/this.denominator;
+        Rational r = Rational.class.cast(x);
+        long comp = r.numerator/this.denominator;
+//        if(temp == comp){
+//            return 0;
+//        }
+//        else if(temp > comp){
+//            return 1;
+//        }
+        if((numerator == r.numerator)&&(denominator == denominator)){
+            return  0;
+        }
+        else if(temp > comp){
+            return 1;
+        }
         return -1; // TODO: this needs to be modified.
     }
 
@@ -89,9 +122,9 @@ class Rational {
      * Give the formatted string of the rational number
      * @return the string representation of the rational number. For example, "1/2", "3/4".
      */
-    public String toString() { 
+    public String toString() {
         // to be completed
-        return ""; // TODO: This needs to be modified.
+        return this.numerator+ "/"+ this.denominator; // TODO: This needs to be modified.
     }
 
     public static void main(String[] args) {
