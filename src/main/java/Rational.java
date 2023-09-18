@@ -98,18 +98,18 @@ class   Rational {
      * @return -1 if the current rational number is less than the given number, 0 if they're equal, 1 if the current
      * rational number is larger than the given number
      */
-    public double compareTo(Object x) {
+    public long compareTo(Object x) {
         // to be completed
-        double temp = this.numerator/this.denominator;
+        long temp = this.numerator/this.denominator;
         Rational r = Rational.class.cast(x);
-        double comp = r.numerator/this.denominator;
+        long comp = r.numerator/r.denominator;
 //        if(temp == comp){
 //            return 0;
 //        }
 //        else if(temp > comp){
 //            return 1;
 //        }
-        if((numerator == r.numerator)&&(denominator == denominator)){
+        if((numerator == r.numerator)&&(denominator == r.denominator)){
             return  0;
         }
         else if(temp > comp){
