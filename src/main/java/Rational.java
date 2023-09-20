@@ -10,7 +10,7 @@ class   Rational {
 
     Rational() {
         // to be completed
-//        super();
+        super();
     }
 
     Rational(long numerator, long denominator) throws Illegal { 
@@ -83,10 +83,10 @@ class   Rational {
      */
     public boolean equals(Object x) {
         // to be completed
-        long temp = this.numerator/this.denominator;
+//        long temp = this.numerator/this.denominator;
         Rational r = Rational.class.cast(x);
-        long comp = r.numerator/this.denominator;
-        if(temp == comp){
+//        long comp = r.numerator/this.denominator;
+        if(this.numerator == r.numerator && this.denominator == r.denominator){
             return true;
         }
         return false; // TODO: This needs to be modified.
